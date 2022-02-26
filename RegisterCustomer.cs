@@ -17,6 +17,7 @@ namespace FastFoodApp
         public RegisterCustomer(DB db)
         {
             this.db = db;
+            
             InitializeComponent();
         }
 
@@ -24,7 +25,7 @@ namespace FastFoodApp
         {
             PasswordHashing hasher = new PasswordHashing();
             string hashedPass = hasher.HashPassword(tbPassword.Text);
-
+            
             if (db.Open())
             {
                 // Add Validation here ------
@@ -38,16 +39,14 @@ namespace FastFoodApp
                 db.Close();
             }
 
-            //Form form = Application.OpenForms["Form1"];
-            //form.Show();
+
             this.Close();
 
         }
 
         private void RegisterCustomer_FormClosed(object sender, FormClosedEventArgs e)
         {
-           // Form form = Application.OpenForms["Form1"];
-           // form.Show();
+
             this.Close();
         }
     }

@@ -14,11 +14,11 @@ namespace FastFoodApp
 {
 
     
-    public partial class Form1 : Form
+    public partial class MainLogin : Form
     {
         User[] users = new User[1];
         DB db = new DB();
-        public Form1()
+        public MainLogin()
         {
             InitializeComponent();
         }
@@ -46,9 +46,9 @@ namespace FastFoodApp
                     savedPass = dataReader["Password"].ToString();
                     if (hasher.ComparePasswords(tbPassword.Text, savedPass))
                     {
-                        MessageBox.Show("Success!");
-                        // Account Authenticated
-
+                        this.Hide();
+                        CustomerLobby customerLobby = new CustomerLobby(db);
+                        customerLobby.ShowDialog();
                     }
                     else
                     {

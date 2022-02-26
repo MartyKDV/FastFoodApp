@@ -38,6 +38,8 @@ namespace FastFoodApp
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.MaskedTextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.tbEmail = new System.Windows.Forms.MaskedTextBox();
+            this.lbEmail = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbUsername
@@ -107,17 +109,36 @@ namespace FastFoodApp
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(157, 248);
+            this.btnSubmit.Location = new System.Drawing.Point(163, 306);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.Size = new System.Drawing.Size(75, 29);
             this.btnSubmit.TabIndex = 8;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // tbEmail
+            // 
+            this.tbEmail.Location = new System.Drawing.Point(178, 232);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.PasswordChar = '*';
+            this.tbEmail.Size = new System.Drawing.Size(100, 22);
+            this.tbEmail.TabIndex = 10;
+            // 
+            // lbEmail
+            // 
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Location = new System.Drawing.Point(98, 232);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(42, 17);
+            this.lbEmail.TabIndex = 9;
+            this.lbEmail.Text = "Email";
+            // 
             // RegisterCustomer
             // 
             this.ClientSize = new System.Drawing.Size(391, 376);
+            this.Controls.Add(this.tbEmail);
+            this.Controls.Add(this.lbEmail);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbLastName);
@@ -145,5 +166,7 @@ namespace FastFoodApp
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.MaskedTextBox tbPassword;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.MaskedTextBox tbEmail;
+        private System.Windows.Forms.Label lbEmail;
     }
 }

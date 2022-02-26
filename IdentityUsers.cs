@@ -13,13 +13,12 @@ namespace FastFoodApp
         {
 
         }
-        public Person(int id, string fName, string lName, string email, string pass)
+        public Person(string fName, string lName, string email, string pass)
         {
             PasswordHash = pass;
             FirstName = fName;
             LastName = lName;
             Email = email;
-            Id = id.ToString();
         }
         public Person(string id, string fName, string lName, string email, string pass)
         {
@@ -29,6 +28,7 @@ namespace FastFoodApp
             Email = email;
             Id = id.ToString();
         }
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
     }
@@ -38,8 +38,8 @@ namespace FastFoodApp
         {
 
         }
-        public Customer(int id, string fName, string lName, string email, string uName, string pass) :
-            base(id, fName, lName, email, pass)
+        public Customer(string fName, string lName, string email, string uName, string pass) :
+            base(fName, lName, email, pass)
         {           
             UserName = uName;
         }
