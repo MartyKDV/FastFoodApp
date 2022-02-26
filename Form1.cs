@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using Microsoft.AspNet.Identity;
+using MySqlConnector;
 
 namespace FastFoodApp
 {
@@ -32,56 +32,66 @@ namespace FastFoodApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string uname = tbUsername.Text;
-            string pass = tbPassword.Text;
             PasswordHashing hasher = new PasswordHashing();
-            string hashedPass = hasher.HashPassword(pass);     
+            string savedPass;    
 
-            if(db.Open() == true)
+            if(db.Open())
             {
 
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO customers (id, first_name, last_name, username, password) " +
-                    "VALUES (NULL, 'Martin', 'Kadrev', '" + uname + "', '" + hashedPass + "');", db.connection);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM customers WHERE UserName = '" + tbUsername.Text + "';", db.connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
-                /*string queryCustomers = "SELECT * FROM customers WHERE username = " + uname + " AND password = " + hashedPass;
-                string queryEmployees = "SELECT * FROM testtable;";
-                string queryManagers = "SELECT * FROM testtable;";
-                */
-
-                List<Customer> list = new List<Customer>();
-
-                while (dataReader.Read())
+                dataReader.Read();
+                if (dataReader.HasRows)
                 {
-                    list.Add(new Customer(dataReader["first_name"].ToString(), dataReader["last_name"].ToString(),
-                        dataReader["username"].ToString(), dataReader["password"].ToString()));
+                    savedPass = dataReader["Password"].ToString();
+                    if (hasher.ComparePasswords(tbPassword.Text, savedPass))
+                    {
+                        MessageBox.Show("Success!");
+                        // Account Authenticated
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorrect Password!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect Username!");
                 }
 
                 dataReader.Close();
                 db.Close();
-
-                for(int i = 0; i < list.Count; i++)
-                {
-                    MessageBox.Show("First Name: " + list[i].FirstName + "\nLast Name: " + list[0].LastName + "\nUsername: " +
-                        list[0].UserName + "\nPassword: " + list[0].PasswordHash);
-                }
             }
         }
 
         private void registerCustomer_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            RegisterCustomer regCustomer = new RegisterCustomer();
+            //this.Hide();
+            RegisterCustomer regCustomer = new RegisterCustomer(db);
             regCustomer.ShowDialog();
+        }
+
+        private void btnEmployeeLogin_Click(object sender, EventArgs e)
+        {
+            EmployeeLogin employeeLogin = new EmployeeLogin(db);
+            employeeLogin.ShowDialog();
+        }
+
+        private void btnManagerLogin_Click(object sender, EventArgs e)
+        {
+            ManagerLogin managerLogin = new ManagerLogin(db);
+            managerLogin.ShowDialog();
         }
     }
 
-    class DB
+    public class DB
     {
         public MySqlConnection connection;
         private string server;
         private string database;
         private string user;
-        private string password;
+        private string connectString;
 
         public DB()
         {
@@ -90,18 +100,17 @@ namespace FastFoodApp
 
         private void Initialize()
         {
-            server = "localhost";
-            database = "fastfooddb";
-            user = "root";
-            password = "password";
+            this.server = "localhost";
+            this.database = "fastfooddb";
+            this.user = "root";
 
-            string connectString = "Datasource = " + server + ";" + "username=" + user + ";" + "password=" + ";" + "database=" + database;
-
+            this.connectString = "Datasource = " + server + ";" + "username=" + user + ";" + "password=" + ";" + "database=" + database;
             connection = new MySqlConnection(connectString);
         }
 
         public bool Open()
         {
+
             try
             {
                 connection.Open();
