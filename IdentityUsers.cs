@@ -13,40 +13,38 @@ namespace FastFoodApp
         {
 
         }
-        public Person(string fName, string lName, string email, string pass)
+        public Person(string uName, string fName, string lName, string email)
         {
-            PasswordHash = pass;
+            UserName = uName;
             FirstName = fName;
             LastName = lName;
             Email = email;
         }
-        public Person(string id, string fName, string lName, string email, string pass)
+        /*public Person(string id, string fName, string lName, string email)
         {
-            PasswordHash = pass;
             FirstName = fName;
             LastName = lName;
             Email = email;
             Id = id.ToString();
-        }
+        }*/
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
     }
-    public class Customer : Person
+    public class Customerr : Person
     {
-        public Customer()
+        public Customerr()
         {
 
         }
-        public Customer(string fName, string lName, string email, string uName, string pass) :
-            base(fName, lName, email, pass)
+        public Customerr(string uName, string email, string fName, string lName) :
+            base(uName, fName, lName, email)
         {           
-            UserName = uName;
         }
     }
     public class Employee : Person
     {
-        public Employee()
+       /* public Employee()
         {
 
         }
@@ -62,7 +60,7 @@ namespace FastFoodApp
         public string Address { get; set; }
         public int Age { get; set; }
         public float Wage { get; set; }
-        public string SSN { get; set; }
+        public string SSN { get; set; }*/
 
     }
     public class Manager : Employee

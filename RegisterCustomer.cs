@@ -1,4 +1,6 @@
-﻿using MySqlConnector;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +27,29 @@ namespace FastFoodApp
         {
             PasswordHashing hasher = new PasswordHashing();
             string hashedPass = hasher.HashPassword(tbPassword.Text);
-            
+
+            var con = new DatabaseContext();
+            var userStore = new UserStore<Customer>(con);
+            var manager = new UserManager<Customer>(userStore);
+
+            var user = new Customer()
+            {
+                UserName = tbUsername.Text,
+                Email = tbEmail.Text,
+                FirstName = tbFirstName.Text,
+                LastName = tbLastName.Text
+            };
+
+            IdentityResult result = manager.Create(user, hashedPass);
+            if (result.Succeeded)
+            {
+                MessageBox.Show("Success");
+            }
+            else
+            {
+                MessageBox.Show(result.Errors.FirstOrDefault());
+            }
+            /*
             if (db.Open())
             {
                 // Add Validation here ------
@@ -37,7 +61,7 @@ namespace FastFoodApp
                 MessageBox.Show("Account Successfully Registered!");
 
                 db.Close();
-            }
+            }*/
 
 
             this.Close();
