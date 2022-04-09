@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using MySqlConnector;
 
 namespace FastFoodApp
@@ -16,8 +17,11 @@ namespace FastFoodApp
     
     public partial class MainLogin : Form
     {
-        User[] users = new User[1];
-        DB db = new DB();
+        
+        DatabaseContextStandard _context;
+        DatabaseContext _contextIdentity;
+        UserStore<Customer> customerStore;
+        UserManager<Customer> customerManager;
         public MainLogin()
         {
             InitializeComponent();
@@ -25,158 +29,64 @@ namespace FastFoodApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            users[0] = new User("martin", "12345");
+            _context = new DatabaseContextStandard();
+            _contextIdentity = new DatabaseContext();
+            customerStore = new UserStore<Customer>(_contextIdentity);
+            customerManager = new UserManager<Customer>(customerStore);
 
+            /*_context.Ingredients.Add(new Ingredient("Lukanka", 1.2f, "test.jpg"));
+            _context.SaveChanges();
+
+            Product product = new Product("Sandwich");
+            List<Ingredient> ingredients = new List<Ingredient>() { new Ingredient("Lukanka", 1.2f, "test.jpg") };
+            product.CalculatePrice(ingredients);
+
+            _context.Products.Add(product);
+            _context.SaveChanges();
+
+            var test = _context.Ingredients.Where(b => b.Name == "Lukanka");
+            var a = test.First();
+
+            _context.ProductIngredients.Add(new ProductIngredients(product.Id, a.Id));
+            _context.SaveChanges();*/
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            PasswordHashing hasher = new PasswordHashing();
-            string savedPass;    
 
-            if(db.Open())
+            var user = customerManager.Find(tbUsername.Text, tbPassword.Text);
+            if (user != null)
             {
-
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM customers WHERE UserName = '" + tbUsername.Text + "';", db.connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-                dataReader.Read();
-                if (dataReader.HasRows)
-                {
-                    savedPass = dataReader["Password"].ToString();
-                    if (hasher.ComparePasswords(tbPassword.Text, savedPass))
-                    {
-                        this.Hide();
-                        CustomerLobby customerLobby = new CustomerLobby(db);
-                        customerLobby.ShowDialog();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Incorrect Password!");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect Username!");
-                }
-
-                dataReader.Close();
-                db.Close();
+                this.Hide();
+                CustomerLobby customerLobby = new CustomerLobby();
+                customerLobby.ShowDialog();
+                this.Close();
             }
+            else
+            {
+                MessageBox.Show("Incorrect Username or Password!");
+            }
+     
         }
 
         private void registerCustomer_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            RegisterCustomer regCustomer = new RegisterCustomer(db);
+            RegisterCustomer regCustomer = new RegisterCustomer(customerManager);
             regCustomer.ShowDialog();
         }
 
         private void btnEmployeeLogin_Click(object sender, EventArgs e)
         {
-            EmployeeLogin employeeLogin = new EmployeeLogin(db);
+            EmployeeLogin employeeLogin = new EmployeeLogin(_contextIdentity);
             employeeLogin.ShowDialog();
         }
 
         private void btnManagerLogin_Click(object sender, EventArgs e)
         {
-            ManagerLogin managerLogin = new ManagerLogin(db);
+            ManagerLogin managerLogin = new ManagerLogin(_contextIdentity);
             managerLogin.ShowDialog();
         }
     }
 
-    public class DB
-    {
-        public MySqlConnection connection;
-        private string server;
-        private string database;
-        private string user;
-        private string connectString;
-
-        public DB()
-        {
-            Initialize();
-        }
-
-        private void Initialize()
-        {
-            this.server = "localhost";
-            this.database = "fastfooddb";
-            this.user = "root";
-
-            this.connectString = "Datasource = " + server + ";" + "username=" + user + ";" + "password=" + ";" + "database=" + database;
-            connection = new MySqlConnection(connectString);
-        }
-
-        public bool Open()
-        {
-
-            try
-            {
-                connection.Open();
-                return true;
-            }
-            catch (MySqlException e)
-            {
-                switch (e.Number)
-                {
-                    case 0:
-                        MessageBox.Show("Cannot connect to server");
-                        break;
-
-                    case 1045:
-                        MessageBox.Show("Invalid username/password.");
-                        break;
-                    default:
-                        MessageBox.Show(e.Message);
-                        break;
-                }
-                return false;
-            }
-        }
-
-        public bool Close()
-        {
-            try
-            {
-                connection.Close();
-                return true;
-            }
-            catch (MySqlException e)
-            {
-                MessageBox.Show(e.Message);
-                return false;
-            }
-        }
-
-    }
-
-    class User
-    {
-        private string username;
-        private string password;
-
-        public string getPassword()
-        {
-            return this.password;
-        }
-        public string getUsername()
-        {
-            return this.username;
-        }
-        public void setUsername(string uname)
-        {
-            this.username = uname;
-        }
-        public void setPassword(string pass)
-        {
-            this.password = pass;
-        }
-
-        public User(string uname, string pass)
-        {
-            this.username = uname;
-            this.password = pass;
-        }
-    }
+    
 }

@@ -12,16 +12,19 @@ namespace FastFoodApp
 {
     public partial class CustomerLobby : Form
     {
-        DB db;
-        public CustomerLobby(DB db)
+        public CustomerLobby()
         {
-            this.db = db;
             InitializeComponent();
         }
 
         private void CustomerLobby_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void CustomerLobby_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -150,7 +150,9 @@
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
@@ -210,19 +212,21 @@
       <DependentUpon>CustomerLobby.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseContext.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="EmployeeLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EmployeeLogin.Designer.cs">
       <DependentUpon>EmployeeLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ingredient.cs" />
     <Compile Include="MainLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainLogin.Designer.cs">
       <DependentUpon>MainLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="IdentityUsers.cs" />
+    <Compile Include="Manager.cs" />
     <Compile Include="ManagerLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +234,8 @@
       <DependentUpon>ManagerLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="PasswordHashing.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductIngredients.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterCustomer.cs">

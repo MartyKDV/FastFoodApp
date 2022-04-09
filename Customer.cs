@@ -9,19 +9,12 @@ namespace FastFoodApp
 
     public partial class Customer : IdentityUser
     {
-        [Key]
-        public int UserId { get; set; }
-
-
-        [StringLength(200)]
-        public string Password { get; set; }
 
         [StringLength(200)]
         public string FirstName { get; set; }
 
         [StringLength(200)]
         public string LastName { get; set; }
-
 
     }
 }

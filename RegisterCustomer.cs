@@ -15,22 +15,19 @@ namespace FastFoodApp
 {
     public partial class RegisterCustomer : Form
     {
-        DB db;
-        public RegisterCustomer(DB db)
+        UserManager<Customer> userManager;
+        public RegisterCustomer(UserManager<Customer> userManager)
         {
-            this.db = db;
+            this.userManager = userManager;
             
             InitializeComponent();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            
             PasswordHashing hasher = new PasswordHashing();
             string hashedPass = hasher.HashPassword(tbPassword.Text);
-
-            var con = new DatabaseContext();
-            var userStore = new UserStore<Customer>(con);
-            var manager = new UserManager<Customer>(userStore);
 
             var user = new Customer()
             {
@@ -40,7 +37,7 @@ namespace FastFoodApp
                 LastName = tbLastName.Text
             };
 
-            IdentityResult result = manager.Create(user, hashedPass);
+            IdentityResult result = userManager.Create(user, tbPassword.Text);
             if (result.Succeeded)
             {
                 MessageBox.Show("Success");

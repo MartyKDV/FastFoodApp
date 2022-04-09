@@ -13,46 +13,17 @@ namespace FastFoodApp
 {
     public partial class EmployeeLogin : Form
     {
-        DB db;
-        public EmployeeLogin(DB db)
+        DatabaseContext _contextIdentity;
+        public EmployeeLogin(DatabaseContext _contextIdentity)
         {
-            this.db = db;
+            this._contextIdentity = _contextIdentity;
             InitializeComponent();
         }
 
         private void btnEmployeeLogin_Click(object sender, EventArgs e)
         {
-            PasswordHashing hasher = new PasswordHashing();
-            string savedPass;
-
-            if (db.Open())
-            {
-
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM employees WHERE EmployeeId = '" + tbEmployeeID.Text + "';", db.connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-                dataReader.Read();
-                if (dataReader.HasRows)
-                {
-                    savedPass = dataReader["Password"].ToString();
-                    if (hasher.ComparePasswords(tbEmployeePassword.Text, savedPass))
-                    {
-                        MessageBox.Show("Success!");
-                        // Account Authenticated
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Incorrect Password!");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect Employee ID!");
-                }
-
-                dataReader.Close();
-                db.Close();
-            }
+            
+            
         }
     }
 }
