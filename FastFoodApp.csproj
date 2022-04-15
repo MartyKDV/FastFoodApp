@@ -233,6 +233,12 @@
       <DependentUpon>MainLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs" />
+    <Compile Include="ManagerLobby.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerLobby.Designer.cs">
+      <DependentUpon>ManagerLobby.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManagerLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +246,7 @@
       <DependentUpon>ManagerLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Order.cs" />
+    <Compile Include="OrderHistory.cs" />
     <Compile Include="OrderProducts.cs" />
     <Compile Include="PasswordHashing.cs" />
     <Compile Include="Product.cs" />
@@ -263,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainLogin.resx">
       <DependentUpon>MainLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerLobby.resx">
+      <DependentUpon>ManagerLobby.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerLogin.resx">
       <DependentUpon>ManagerLogin.cs</DependentUpon>

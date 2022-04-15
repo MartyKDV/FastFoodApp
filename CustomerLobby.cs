@@ -153,13 +153,21 @@ namespace FastFoodApp
             {
                 productList += i.ToString() + "\n";
             }
-            MessageBox.Show(productList);
+            if(productList == "")
+            {
+                MessageBox.Show("Empty.");
+            }
+            else
+            {
+                MessageBox.Show(productList);
+            }        
         }
 
         private void btnEmptyCart_Click(object sender, EventArgs e)
         {
             userCart.Products.Clear();
             userCart.TotalPrice = 0f;
+            MessageBox.Show("Cart Emptied.");
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
@@ -168,11 +176,11 @@ namespace FastFoodApp
             _context.Orders.Add(order);
             _context.SaveChanges();
 
-            foreach(var p in userCart.Products)
+            foreach (var p in userCart.Products)
             {
                 OrderProducts oP = new OrderProducts(order.Id, p);
                 _context.OrderProducts.Add(oP);
-                _context.SaveChanges();
+                _context.SaveChanges();           
             }
 
             MessageBox.Show("Order placed successfully!");

@@ -34,8 +34,8 @@ namespace FastFoodApp
                 UserName = tbUsername.Text,
                 Email = tbEmail.Text,
                 FirstName = tbFirstName.Text,
-                LastName = tbLastName.Text
-            };
+                LastName = tbLastName.Text     
+            };            
 
             IdentityResult result = userManager.Create(user, tbPassword.Text);
             if (result.Succeeded)

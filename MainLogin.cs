@@ -22,6 +22,10 @@ namespace FastFoodApp
         DatabaseContext _contextIdentity;
         UserStore<Customer> customerStore;
         UserManager<Customer> customerManager;
+        UserStore<Manager> managerStore;
+        UserManager<Manager> managerManager;
+        UserStore<Employee> employeeStore;
+        UserManager<Employee> employeeManager;
         public MainLogin()
         {
             InitializeComponent();
@@ -33,16 +37,45 @@ namespace FastFoodApp
             _contextIdentity = new DatabaseContext();
             customerStore = new UserStore<Customer>(_contextIdentity);
             customerManager = new UserManager<Customer>(customerStore);
-            
+            managerStore = new UserStore<Manager>(_contextIdentity);
+            managerManager = new UserManager<Manager>(managerStore);
+            employeeStore = new UserStore<Employee>(_contextIdentity);
+            employeeManager = new UserManager<Employee>(employeeStore);
+
             /*_context.Ingredients.Add(new Ingredient("Lukanka", 0.8f, "lukanka.jpg"));
             _context.Ingredients.Add(new Ingredient("Cheese", 1.0f, "cheese.jpg"));
             _context.Ingredients.Add(new Ingredient("Tomatoes", 0.3f, "tomatoes.jpg"));
             _context.Ingredients.Add(new Ingredient("Lettuce", 0.2f, "lettuce.jpg"));
-            _context.SaveChanges();*/
+            _context.SaveChanges();
 
-            /*addProduct("Sandwich", "Classic", new List<int>() { 1, 2, 3, 4 });
+            addProduct("Sandwich", "Classic", new List<int>() { 1, 2, 3, 4 });
             addProduct("Sandwich", "Veggie v1", new List<int>() { 2, 3, 4 });
-            addProduct("Sandwich", "Veggie v2", new List<int>() { 2, 3 });*/
+            addProduct("Sandwich", "Veggie v2", new List<int>() { 2, 3 });
+
+            Manager newManager = new Manager()
+            {
+                UserName = "aaaa1111aaaa",
+                ManagerFirstName = "Martin",
+                ManagerLastName = "Kadrev",
+                ManagerAddress = "Sofia",
+                ManagerSSN = "73823643",
+                ManagerWage = 25.5f,
+                ManagerAge = 23
+            };
+
+            Employee newEmployee = new Employee()
+            {
+                UserName = "bbbb1111bbbb",
+                EmployeeFirstName = "Martin",
+                EmployeeLastName = "Kadrev",
+                EmployeeAddress = "Sofia",
+                EmployeeSSN = "73823643",
+                EmployeeWage = 25.5f,
+                EmployeeAge = 23
+            };
+
+            employeeManager.Create(newEmployee, "testtest");
+            managerManager.Create(newManager, "testtest");*/
 
         }
 
@@ -98,7 +131,7 @@ namespace FastFoodApp
 
         private void btnManagerLogin_Click(object sender, EventArgs e)
         {
-            ManagerLogin managerLogin = new ManagerLogin(_contextIdentity);
+            ManagerLogin managerLogin = new ManagerLogin(_contextIdentity, _context, managerManager, employeeManager);
             managerLogin.ShowDialog();
         }
     }

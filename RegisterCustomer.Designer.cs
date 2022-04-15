@@ -45,71 +45,71 @@ namespace FastFoodApp
             // lbUsername
             // 
             this.lbUsername.AutoSize = true;
-            this.lbUsername.Location = new System.Drawing.Point(98, 116);
+            this.lbUsername.Location = new System.Drawing.Point(114, 123);
             this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(73, 17);
+            this.lbUsername.Size = new System.Drawing.Size(55, 13);
             this.lbUsername.TabIndex = 0;
             this.lbUsername.Text = "Username";
             // 
             // lbFirstName
             // 
             this.lbFirstName.AutoSize = true;
-            this.lbFirstName.Location = new System.Drawing.Point(98, 146);
+            this.lbFirstName.Location = new System.Drawing.Point(114, 149);
             this.lbFirstName.Name = "lbFirstName";
-            this.lbFirstName.Size = new System.Drawing.Size(76, 17);
+            this.lbFirstName.Size = new System.Drawing.Size(57, 13);
             this.lbFirstName.TabIndex = 1;
             this.lbFirstName.Text = "First Name";
             // 
             // lbLastName
             // 
             this.lbLastName.AutoSize = true;
-            this.lbLastName.Location = new System.Drawing.Point(98, 174);
+            this.lbLastName.Location = new System.Drawing.Point(114, 177);
             this.lbLastName.Name = "lbLastName";
-            this.lbLastName.Size = new System.Drawing.Size(76, 17);
+            this.lbLastName.Size = new System.Drawing.Size(58, 13);
             this.lbLastName.TabIndex = 2;
             this.lbLastName.Text = "Last Name";
             // 
             // lbPassword
             // 
             this.lbPassword.AutoSize = true;
-            this.lbPassword.Location = new System.Drawing.Point(98, 204);
+            this.lbPassword.Location = new System.Drawing.Point(114, 203);
             this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(69, 17);
+            this.lbPassword.Size = new System.Drawing.Size(53, 13);
             this.lbPassword.TabIndex = 3;
             this.lbPassword.Text = "Password";
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(178, 110);
+            this.tbUsername.Location = new System.Drawing.Point(178, 120);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(100, 22);
+            this.tbUsername.Size = new System.Drawing.Size(100, 20);
             this.tbUsername.TabIndex = 4;
             // 
             // tbFirstName
             // 
             this.tbFirstName.Location = new System.Drawing.Point(178, 146);
             this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(100, 22);
+            this.tbFirstName.Size = new System.Drawing.Size(100, 20);
             this.tbFirstName.TabIndex = 5;
             // 
             // tbLastName
             // 
             this.tbLastName.Location = new System.Drawing.Point(178, 174);
             this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(100, 22);
+            this.tbLastName.Size = new System.Drawing.Size(100, 20);
             this.tbLastName.TabIndex = 6;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(178, 204);
+            this.tbPassword.Location = new System.Drawing.Point(178, 200);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(100, 22);
+            this.tbPassword.Size = new System.Drawing.Size(100, 20);
             this.tbPassword.TabIndex = 7;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(163, 306);
+            this.btnSubmit.Location = new System.Drawing.Point(161, 285);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 29);
             this.btnSubmit.TabIndex = 8;
@@ -119,18 +119,18 @@ namespace FastFoodApp
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(178, 232);
+            this.tbEmail.Location = new System.Drawing.Point(178, 226);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.PasswordChar = '*';
-            this.tbEmail.Size = new System.Drawing.Size(100, 22);
+            this.tbEmail.Size = new System.Drawing.Size(100, 20);
             this.tbEmail.TabIndex = 10;
             // 
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(98, 232);
+            this.lbEmail.Location = new System.Drawing.Point(114, 229);
             this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(42, 17);
+            this.lbEmail.Size = new System.Drawing.Size(32, 13);
             this.lbEmail.TabIndex = 9;
             this.lbEmail.Text = "Email";
             // 

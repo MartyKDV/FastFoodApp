@@ -52,10 +52,11 @@
             this.tabCustomerOptions.Controls.Add(this.viewProducts);
             this.tabCustomerOptions.Controls.Add(this.viewOrder);
             this.tabCustomerOptions.Controls.Add(this.viewHistory);
-            this.tabCustomerOptions.Location = new System.Drawing.Point(1, 2);
+            this.tabCustomerOptions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabCustomerOptions.Location = new System.Drawing.Point(0, 0);
             this.tabCustomerOptions.Name = "tabCustomerOptions";
             this.tabCustomerOptions.SelectedIndex = 0;
-            this.tabCustomerOptions.Size = new System.Drawing.Size(582, 361);
+            this.tabCustomerOptions.Size = new System.Drawing.Size(585, 366);
             this.tabCustomerOptions.TabIndex = 1;
             // 
             // viewProducts
@@ -64,7 +65,7 @@
             this.viewProducts.Location = new System.Drawing.Point(4, 22);
             this.viewProducts.Name = "viewProducts";
             this.viewProducts.Padding = new System.Windows.Forms.Padding(3);
-            this.viewProducts.Size = new System.Drawing.Size(574, 335);
+            this.viewProducts.Size = new System.Drawing.Size(577, 340);
             this.viewProducts.TabIndex = 0;
             this.viewProducts.Text = "View Products";
             this.viewProducts.UseVisualStyleBackColor = true;
@@ -80,7 +81,7 @@
             this.listViewProducts.HideSelection = false;
             this.listViewProducts.Location = new System.Drawing.Point(3, 3);
             this.listViewProducts.Name = "listViewProducts";
-            this.listViewProducts.Size = new System.Drawing.Size(568, 329);
+            this.listViewProducts.Size = new System.Drawing.Size(571, 334);
             this.listViewProducts.TabIndex = 1;
             this.listViewProducts.TileSize = new System.Drawing.Size(220, 80);
             this.listViewProducts.UseCompatibleStateImageBehavior = false;
@@ -102,7 +103,7 @@
             this.viewOrder.Location = new System.Drawing.Point(4, 22);
             this.viewOrder.Name = "viewOrder";
             this.viewOrder.Padding = new System.Windows.Forms.Padding(3);
-            this.viewOrder.Size = new System.Drawing.Size(574, 335);
+            this.viewOrder.Size = new System.Drawing.Size(577, 340);
             this.viewOrder.TabIndex = 1;
             this.viewOrder.Text = "Order";
             this.viewOrder.UseVisualStyleBackColor = true;
@@ -120,7 +121,7 @@
             this.flowLayoutOrders.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutOrders.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutOrders.Name = "flowLayoutOrders";
-            this.flowLayoutOrders.Size = new System.Drawing.Size(568, 329);
+            this.flowLayoutOrders.Size = new System.Drawing.Size(571, 334);
             this.flowLayoutOrders.TabIndex = 0;
             // 
             // label1

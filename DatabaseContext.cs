@@ -31,6 +31,7 @@ namespace FastFoodApp
         public DbSet<ProductIngredients>    ProductIngredients  { get; set; }
         public DbSet<Order>                 Orders              { get; set; }
         public DbSet<OrderProducts>         OrderProducts       { get; set; }
+        public DbSet<OrderHistory>          OrderHistory        { get; set; }
         //public DbSet<Request>             Requests            { get; set; }
 
     }

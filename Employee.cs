@@ -13,14 +13,20 @@ namespace FastFoodApp
     public partial class Employee : IdentityUser
     {
         [StringLength(200)]
-        public string Address { get; set; }
+        public string EmployeeFirstName { get; set; }
 
-        public int Age { get; set; }
+        [StringLength(200)]
+        public string EmployeeLastName { get; set; }
 
-        public float Wage { get; set; }
+        [StringLength(200)]
+        public string EmployeeAddress { get; set; }
+
+        public int EmployeeAge { get; set; }
+
+        public float EmployeeWage { get; set; }
 
         [StringLength(9)]
-        public string SSN { get; set; }
+        public string EmployeeSSN { get; set; }
     }
 }
 
