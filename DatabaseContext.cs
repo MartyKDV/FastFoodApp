@@ -29,7 +29,8 @@ namespace FastFoodApp
         public DbSet<Product>               Products            { get; set; }
         public DbSet<Ingredient>            Ingredients         { get; set; }
         public DbSet<ProductIngredients>    ProductIngredients  { get; set; }
-        //public DbSet<Order>               Orders              { get; set; }
+        public DbSet<Order>                 Orders              { get; set; }
+        public DbSet<OrderProducts>         OrderProducts       { get; set; }
         //public DbSet<Request>             Requests            { get; set; }
 
     }

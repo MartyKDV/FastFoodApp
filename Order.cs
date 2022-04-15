@@ -8,21 +8,22 @@ using System.Threading.Tasks;
 
 namespace FastFoodApp
 {
-    public class ProductIngredients
+    public class Order
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int ProductId { get; set; }
-        public int IngredientId { get; set; }
-        public ProductIngredients()
+        public string CustomerId { get; set; }
+        public float TotalPrice { get; set; }
+
+        public Order()
         {
 
         }
-        public ProductIngredients(int productId, int ingredientId)
+        public Order(string customerId, float totalPrice)
         {
-            this.ProductId = productId;
-            this.IngredientId = ingredientId;
+            this.CustomerId = customerId;
+            this.TotalPrice = totalPrice;
         }
     }
 }

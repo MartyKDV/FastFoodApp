@@ -1,28 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FastFoodApp
 {
-    public class ProductIngredients
+    public class OrderProducts
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        public int OrderId { get; set; }
         public int ProductId { get; set; }
-        public int IngredientId { get; set; }
-        public ProductIngredients()
+
+        public OrderProducts()
         {
 
         }
-        public ProductIngredients(int productId, int ingredientId)
+        public OrderProducts(int orderId, int productId)
         {
+            this.OrderId = orderId;
             this.ProductId = productId;
-            this.IngredientId = ingredientId;
         }
     }
 }

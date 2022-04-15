@@ -33,22 +33,37 @@ namespace FastFoodApp
             _contextIdentity = new DatabaseContext();
             customerStore = new UserStore<Customer>(_contextIdentity);
             customerManager = new UserManager<Customer>(customerStore);
+            
+            /*_context.Ingredients.Add(new Ingredient("Lukanka", 0.8f, "lukanka.jpg"));
+            _context.Ingredients.Add(new Ingredient("Cheese", 1.0f, "cheese.jpg"));
+            _context.Ingredients.Add(new Ingredient("Tomatoes", 0.3f, "tomatoes.jpg"));
+            _context.Ingredients.Add(new Ingredient("Lettuce", 0.2f, "lettuce.jpg"));
+            _context.SaveChanges();*/
 
-            /*_context.Ingredients.Add(new Ingredient("Lukanka", 1.2f, "test.jpg"));
-            _context.SaveChanges();
+            /*addProduct("Sandwich", "Classic", new List<int>() { 1, 2, 3, 4 });
+            addProduct("Sandwich", "Veggie v1", new List<int>() { 2, 3, 4 });
+            addProduct("Sandwich", "Veggie v2", new List<int>() { 2, 3 });*/
 
-            Product product = new Product("Sandwich");
-            List<Ingredient> ingredients = new List<Ingredient>() { new Ingredient("Lukanka", 1.2f, "test.jpg") };
-            product.CalculatePrice(ingredients);
+        }
+
+        private void addProduct(string type, string name, List<int> list)
+        {
+            Product product = new Product(type, name, list);
+
+            foreach (var i in product.Ingredients)
+            {
+                var query = _context.Ingredients.Where(b => b.Id == i).First();
+                product.Price += query.Price;
+            } 
 
             _context.Products.Add(product);
             _context.SaveChanges();
 
-            var test = _context.Ingredients.Where(b => b.Name == "Lukanka");
-            var a = test.First();
-
-            _context.ProductIngredients.Add(new ProductIngredients(product.Id, a.Id));
-            _context.SaveChanges();*/
+            foreach (var i in product.Ingredients)
+            {
+                _context.ProductIngredients.Add(new ProductIngredients(product.Id, i));
+                _context.SaveChanges();
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -58,7 +73,7 @@ namespace FastFoodApp
             if (user != null)
             {
                 this.Hide();
-                CustomerLobby customerLobby = new CustomerLobby();
+                CustomerLobby customerLobby = new CustomerLobby(_context, user);
                 customerLobby.ShowDialog();
                 this.Close();
             }
@@ -66,7 +81,7 @@ namespace FastFoodApp
             {
                 MessageBox.Show("Incorrect Username or Password!");
             }
-     
+
         }
 
         private void registerCustomer_Click(object sender, EventArgs e)

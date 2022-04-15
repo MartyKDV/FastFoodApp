@@ -211,6 +211,12 @@
     <Compile Include="CustomerLobby.Designer.cs">
       <DependentUpon>CustomerLobby.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomProduct.Designer.cs">
+      <DependentUpon>CustomProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseContext.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeLogin.cs">
@@ -233,6 +239,8 @@
     <Compile Include="ManagerLogin.Designer.cs">
       <DependentUpon>ManagerLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderProducts.cs" />
     <Compile Include="PasswordHashing.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductIngredients.cs" />
@@ -246,6 +254,9 @@
     </Compile>
     <EmbeddedResource Include="CustomerLobby.resx">
       <DependentUpon>CustomerLobby.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomProduct.resx">
+      <DependentUpon>CustomProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeLogin.resx">
       <DependentUpon>EmployeeLogin.cs</DependentUpon>
