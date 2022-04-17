@@ -219,6 +219,12 @@
     </Compile>
     <Compile Include="DatabaseContext.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeLobby.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeLobby.Designer.cs">
+      <DependentUpon>EmployeeLobby.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,11 +265,21 @@
     <Compile Include="RegisterCustomer.Designer.cs">
       <DependentUpon>RegisterCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegisterEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterEmployee.Designer.cs">
+      <DependentUpon>RegisterEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RestockRequest.cs" />
     <EmbeddedResource Include="CustomerLobby.resx">
       <DependentUpon>CustomerLobby.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomProduct.resx">
       <DependentUpon>CustomProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeLobby.resx">
+      <DependentUpon>EmployeeLobby.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeLogin.resx">
       <DependentUpon>EmployeeLogin.cs</DependentUpon>
@@ -288,6 +304,9 @@
     </Compile>
     <EmbeddedResource Include="RegisterCustomer.resx">
       <DependentUpon>RegisterCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterEmployee.resx">
+      <DependentUpon>RegisterEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

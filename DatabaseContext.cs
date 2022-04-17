@@ -32,7 +32,7 @@ namespace FastFoodApp
         public DbSet<Order>                 Orders              { get; set; }
         public DbSet<OrderProducts>         OrderProducts       { get; set; }
         public DbSet<OrderHistory>          OrderHistory        { get; set; }
-        //public DbSet<Request>             Requests            { get; set; }
+        public DbSet<RestockRequest>        RestockRequests     { get; set; }
 
     }
 }

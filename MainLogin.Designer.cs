@@ -46,38 +46,34 @@ namespace FastFoodApp
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(226, 108);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.tbUsername.Location = new System.Drawing.Point(170, 88);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(132, 22);
+            this.tbUsername.Size = new System.Drawing.Size(100, 20);
             this.tbUsername.TabIndex = 0;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(226, 156);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPassword.Location = new System.Drawing.Point(170, 127);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(132, 22);
+            this.tbPassword.Size = new System.Drawing.Size(100, 20);
             this.tbPassword.TabIndex = 1;
             // 
             // labelUsername
             // 
             this.labelUsername.AutoSize = true;
-            this.labelUsername.Location = new System.Drawing.Point(147, 111);
-            this.labelUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelUsername.Location = new System.Drawing.Point(110, 90);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(73, 17);
+            this.labelUsername.Size = new System.Drawing.Size(55, 13);
             this.labelUsername.TabIndex = 2;
             this.labelUsername.Text = "Username";
             // 
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(147, 159);
-            this.labelPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPassword.Location = new System.Drawing.Point(110, 129);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(69, 17);
+            this.labelPassword.Size = new System.Drawing.Size(53, 13);
             this.labelPassword.TabIndex = 3;
             this.labelPassword.Text = "Password";
             // 
@@ -89,10 +85,9 @@ namespace FastFoodApp
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(150, 209);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogin.Location = new System.Drawing.Point(112, 170);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(100, 28);
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -100,10 +95,9 @@ namespace FastFoodApp
             // 
             // registerCustomer
             // 
-            this.registerCustomer.Location = new System.Drawing.Point(259, 209);
-            this.registerCustomer.Margin = new System.Windows.Forms.Padding(4);
+            this.registerCustomer.Location = new System.Drawing.Point(194, 170);
             this.registerCustomer.Name = "registerCustomer";
-            this.registerCustomer.Size = new System.Drawing.Size(100, 28);
+            this.registerCustomer.Size = new System.Drawing.Size(75, 23);
             this.registerCustomer.TabIndex = 5;
             this.registerCustomer.Text = "Register";
             this.registerCustomer.UseVisualStyleBackColor = true;
@@ -111,9 +105,10 @@ namespace FastFoodApp
             // 
             // btnEmployeeLogin
             // 
-            this.btnEmployeeLogin.Location = new System.Drawing.Point(150, 329);
+            this.btnEmployeeLogin.Location = new System.Drawing.Point(112, 267);
+            this.btnEmployeeLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEmployeeLogin.Name = "btnEmployeeLogin";
-            this.btnEmployeeLogin.Size = new System.Drawing.Size(209, 43);
+            this.btnEmployeeLogin.Size = new System.Drawing.Size(157, 35);
             this.btnEmployeeLogin.TabIndex = 6;
             this.btnEmployeeLogin.Text = "Employee Login";
             this.btnEmployeeLogin.UseVisualStyleBackColor = true;
@@ -121,9 +116,10 @@ namespace FastFoodApp
             // 
             // btnManagerLogin
             // 
-            this.btnManagerLogin.Location = new System.Drawing.Point(150, 402);
+            this.btnManagerLogin.Location = new System.Drawing.Point(112, 327);
+            this.btnManagerLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnManagerLogin.Name = "btnManagerLogin";
-            this.btnManagerLogin.Size = new System.Drawing.Size(209, 43);
+            this.btnManagerLogin.Size = new System.Drawing.Size(157, 35);
             this.btnManagerLogin.TabIndex = 7;
             this.btnManagerLogin.Text = "Manager Login";
             this.btnManagerLogin.UseVisualStyleBackColor = true;
@@ -132,19 +128,20 @@ namespace FastFoodApp
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(391, 54);
+            this.pictureBox1.Location = new System.Drawing.Point(293, 44);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(493, 440);
+            this.pictureBox1.Size = new System.Drawing.Size(370, 358);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
             // MainLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(938, 548);
+            this.ClientSize = new System.Drawing.Size(704, 445);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnManagerLogin);
             this.Controls.Add(this.btnEmployeeLogin);
@@ -154,8 +151,8 @@ namespace FastFoodApp
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUsername);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FastFoodApp";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

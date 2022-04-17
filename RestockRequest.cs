@@ -8,23 +8,23 @@ using System.Threading.Tasks;
 
 namespace FastFoodApp
 {
-    public class Ingredient
+    public class RestockRequest
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public float Price { get; set; }
+        public string EmployeeId { get; set; }
+        public int IngredientId { get; set; }
         public int Quantity { get; set; }
 
-        public Ingredient()
+        public RestockRequest()
         {
 
         }
-        public Ingredient(string name, float price, int quantity)
+        public RestockRequest(string employeeId, int ingredientId, int quantity)
         {
-            this.Name = name;
-            this.Price = price;
+            this.EmployeeId = employeeId;
+            this.IngredientId = ingredientId;
             this.Quantity = quantity;
         }
     }

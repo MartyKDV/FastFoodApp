@@ -38,8 +38,8 @@ namespace FastFoodApp
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.MaskedTextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.tbEmail = new System.Windows.Forms.MaskedTextBox();
             this.lbEmail = new System.Windows.Forms.Label();
+            this.tbEmail = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbUsername
@@ -50,6 +50,7 @@ namespace FastFoodApp
             this.lbUsername.Size = new System.Drawing.Size(55, 13);
             this.lbUsername.TabIndex = 0;
             this.lbUsername.Text = "Username";
+            this.lbUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbFirstName
             // 
@@ -59,6 +60,7 @@ namespace FastFoodApp
             this.lbFirstName.Size = new System.Drawing.Size(57, 13);
             this.lbFirstName.TabIndex = 1;
             this.lbFirstName.Text = "First Name";
+            this.lbFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbLastName
             // 
@@ -68,6 +70,7 @@ namespace FastFoodApp
             this.lbLastName.Size = new System.Drawing.Size(58, 13);
             this.lbLastName.TabIndex = 2;
             this.lbLastName.Text = "Last Name";
+            this.lbLastName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbPassword
             // 
@@ -77,6 +80,7 @@ namespace FastFoodApp
             this.lbPassword.Size = new System.Drawing.Size(53, 13);
             this.lbPassword.TabIndex = 3;
             this.lbPassword.Text = "Password";
+            this.lbPassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tbUsername
             // 
@@ -117,14 +121,6 @@ namespace FastFoodApp
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // tbEmail
-            // 
-            this.tbEmail.Location = new System.Drawing.Point(178, 226);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.PasswordChar = '*';
-            this.tbEmail.Size = new System.Drawing.Size(100, 20);
-            this.tbEmail.TabIndex = 10;
-            // 
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
@@ -133,6 +129,14 @@ namespace FastFoodApp
             this.lbEmail.Size = new System.Drawing.Size(32, 13);
             this.lbEmail.TabIndex = 9;
             this.lbEmail.Text = "Email";
+            this.lbEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.Location = new System.Drawing.Point(178, 226);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(100, 20);
+            this.tbEmail.TabIndex = 11;
             // 
             // RegisterCustomer
             // 
@@ -149,6 +153,7 @@ namespace FastFoodApp
             this.Controls.Add(this.lbFirstName);
             this.Controls.Add(this.lbUsername);
             this.Name = "RegisterCustomer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterCustomer_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -166,7 +171,7 @@ namespace FastFoodApp
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.MaskedTextBox tbPassword;
         private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.MaskedTextBox tbEmail;
         private System.Windows.Forms.Label lbEmail;
+        private System.Windows.Forms.TextBox tbEmail;
     }
 }

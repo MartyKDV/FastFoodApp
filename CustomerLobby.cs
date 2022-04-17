@@ -12,14 +12,12 @@ namespace FastFoodApp
 {
     public partial class CustomerLobby : Form
     {
-        private Customer user;
         public Cart userCart;
         private DatabaseContextStandard _context;
         private bool viewOrderInitialised = false;
         public CustomerLobby(DatabaseContextStandard _context, Customer user)
         {
             this._context = _context;
-            this.user = user;
             userCart = new Cart(user.Id, this._context);
             InitializeComponent();
         }
@@ -32,7 +30,6 @@ namespace FastFoodApp
         private void CustomerLobby_Load(object sender, EventArgs e)
         {
             List<Product> productsList = new List<Product>();
-            //var productsQuery = _context.Products.Take(_context.Products.Count());
             var productsQuery = _context.Products.Where(p => p.Name != "Custom Product");
             foreach (var i in productsQuery)
             {
@@ -42,7 +39,7 @@ namespace FastFoodApp
             List<ListViewItem> items = new List<ListViewItem>();
             foreach (var i in productsList)
             {
-                string[] array = new string[2];
+                string[] array = new string[3];
                 array[0] = i.Name;
                 string ingredients = "";
 
@@ -66,6 +63,7 @@ namespace FastFoodApp
                 }
 
                 array[1] = ingredients;
+                array[2] = i.Price.ToString();
                 items.Add(new ListViewItem(array));
             }
             foreach (var i in items)
@@ -88,7 +86,7 @@ namespace FastFoodApp
                 int j = 1, k = 1;
                 foreach (var i in productsQuery)
                 {
-                    OrderProduct oP = new OrderProduct(i.Id, i.Name, j * 140 + 20, k * 24 + 20, flowLayoutOrders, new OrderButton());
+                    OrderProduct oP = new OrderProduct(i.Id, i.Name, j * 180 + 20, k * 24 + 20, flowLayoutOrders, new OrderButton());
                     oP.orderButton.Click += new EventHandler(orderButton_Click);
                     if (j % 5 == 0 && j > 0)
                     {
@@ -149,16 +147,20 @@ namespace FastFoodApp
         private void btnCart_Click(object sender, EventArgs e)
         {
             string productList = "";
+            
             foreach(var i in userCart.Products)
             {
-                productList += i.ToString() + "\n";
+                var product = _context.Products.Where(p => p.Id == i).First();
+                productList += product.Name + " - " + product.Price + "\n";
             }
+
             if(productList == "")
             {
                 MessageBox.Show("Empty.");
             }
             else
             {
+                productList += "Total: " + userCart.TotalPrice.ToString();
                 MessageBox.Show(productList);
             }        
         }
@@ -172,18 +174,28 @@ namespace FastFoodApp
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            Order order = new Order(userCart.userId, userCart.TotalPrice);
-            _context.Orders.Add(order);
-            _context.SaveChanges();
-
-            foreach (var p in userCart.Products)
+            if(userCart.Products.Count != 0)
             {
-                OrderProducts oP = new OrderProducts(order.Id, p);
-                _context.OrderProducts.Add(oP);
-                _context.SaveChanges();           
-            }
+                Order order = new Order(userCart.userId, userCart.TotalPrice);
+                _context.Orders.Add(order);
+                _context.SaveChanges();
 
-            MessageBox.Show("Order placed successfully!");
+                foreach (var p in userCart.Products)
+                {
+                    OrderProducts oP = new OrderProducts(order.Id, p);
+                    _context.OrderProducts.Add(oP);
+                    _context.SaveChanges();
+                }
+
+                MessageBox.Show("Order placed successfully!");
+                userCart.Products.Clear();
+                userCart.TotalPrice = 0f;
+            }
+            else
+            {
+                MessageBox.Show("Cart is Empty!");
+            }
+            
         }
 
         private void btnAddCustom_Click(object sender, EventArgs e)
@@ -228,6 +240,7 @@ namespace FastFoodApp
             FlowLayoutPanel panel = (sender as FlowLayoutPanel);
             Panel pane = new Panel();
             pane.Size = new Size(140, 24);
+            pane.Margin = new Padding(3, 10, 47, 0);
             pane.Location = new Point(x, y);
             pane.Controls.Add(label);
             pane.Controls.Add(orderButton);

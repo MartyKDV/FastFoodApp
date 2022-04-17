@@ -11,15 +11,17 @@ namespace FastFoodApp
         public int Id { get; set; }
         public string CustomerId { get; set; }
         public float TotalPrice { get; set; }
+        public string EmployeeId { get; set; }
         public OrderHistory()
         {
 
         }
-        public OrderHistory(int orderId, string customerId, float totalPrice)
+        public OrderHistory(int orderId, string customerId, string employeeId , float totalPrice)
         {
             this.Id = orderId;
             this.CustomerId = customerId;
             this.TotalPrice = totalPrice;
+            this.EmployeeId = employeeId;
         }
     }
 }

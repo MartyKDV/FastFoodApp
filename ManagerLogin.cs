@@ -19,12 +19,14 @@ namespace FastFoodApp
         DatabaseContextStandard _context;
         UserManager<Manager> userManager;
         UserManager<Employee> employeeManager;
-        public ManagerLogin(DatabaseContext contextIdentity, DatabaseContextStandard context, UserManager<Manager> userManager, UserManager<Employee> employeeManager)
+        Form form;
+        public ManagerLogin(DatabaseContext contextIdentity, DatabaseContextStandard context, UserManager<Manager> userManager, UserManager<Employee> employeeManager, Form form)
         {
             this._contextIdentity = contextIdentity;
             this._context = context;
             this.userManager = userManager;
             this.employeeManager = employeeManager;
+            this.form = form;
             InitializeComponent();
         }
 
@@ -33,6 +35,7 @@ namespace FastFoodApp
             var user = userManager.Find(tbManagerID.Text, tbManagerPassword.Text);
             if (user != null)
             {
+                form.Hide();
                 this.Hide();
                 ManagerLobby managerLobby = new ManagerLobby(_contextIdentity, _context, userManager, employeeManager, user);
                 managerLobby.ShowDialog();

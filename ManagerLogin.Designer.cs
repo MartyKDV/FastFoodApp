@@ -37,9 +37,10 @@
             // 
             // btnManagerLogin
             // 
-            this.btnManagerLogin.Location = new System.Drawing.Point(105, 161);
+            this.btnManagerLogin.Location = new System.Drawing.Point(79, 131);
+            this.btnManagerLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnManagerLogin.Name = "btnManagerLogin";
-            this.btnManagerLogin.Size = new System.Drawing.Size(75, 34);
+            this.btnManagerLogin.Size = new System.Drawing.Size(56, 28);
             this.btnManagerLogin.TabIndex = 9;
             this.btnManagerLogin.Text = "Login";
             this.btnManagerLogin.UseVisualStyleBackColor = true;
@@ -47,48 +48,54 @@
             // 
             // tbManagerPassword
             // 
-            this.tbManagerPassword.Location = new System.Drawing.Point(126, 111);
+            this.tbManagerPassword.Location = new System.Drawing.Point(94, 90);
+            this.tbManagerPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbManagerPassword.Name = "tbManagerPassword";
             this.tbManagerPassword.PasswordChar = '*';
-            this.tbManagerPassword.Size = new System.Drawing.Size(129, 22);
+            this.tbManagerPassword.Size = new System.Drawing.Size(98, 20);
             this.tbManagerPassword.TabIndex = 8;
             // 
             // tbManagerID
             // 
-            this.tbManagerID.Location = new System.Drawing.Point(126, 70);
+            this.tbManagerID.Location = new System.Drawing.Point(94, 57);
+            this.tbManagerID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbManagerID.Name = "tbManagerID";
-            this.tbManagerID.Size = new System.Drawing.Size(129, 22);
+            this.tbManagerID.Size = new System.Drawing.Size(98, 20);
             this.tbManagerID.TabIndex = 7;
             // 
             // lbManagerPassword
             // 
             this.lbManagerPassword.AutoSize = true;
-            this.lbManagerPassword.Location = new System.Drawing.Point(33, 114);
+            this.lbManagerPassword.Location = new System.Drawing.Point(25, 93);
+            this.lbManagerPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbManagerPassword.Name = "lbManagerPassword";
-            this.lbManagerPassword.Size = new System.Drawing.Size(69, 17);
+            this.lbManagerPassword.Size = new System.Drawing.Size(53, 13);
             this.lbManagerPassword.TabIndex = 6;
             this.lbManagerPassword.Text = "Password";
             // 
             // lbManagerID
             // 
             this.lbManagerID.AutoSize = true;
-            this.lbManagerID.Location = new System.Drawing.Point(33, 73);
+            this.lbManagerID.Location = new System.Drawing.Point(25, 59);
+            this.lbManagerID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbManagerID.Name = "lbManagerID";
-            this.lbManagerID.Size = new System.Drawing.Size(81, 17);
+            this.lbManagerID.Size = new System.Drawing.Size(63, 13);
             this.lbManagerID.TabIndex = 5;
             this.lbManagerID.Text = "Manager ID";
             // 
             // ManagerLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(287, 217);
+            this.ClientSize = new System.Drawing.Size(215, 176);
             this.Controls.Add(this.btnManagerLogin);
             this.Controls.Add(this.tbManagerPassword);
             this.Controls.Add(this.tbManagerID);
             this.Controls.Add(this.lbManagerPassword);
             this.Controls.Add(this.lbManagerID);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ManagerLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManagerLogin";
             this.ResumeLayout(false);
             this.PerformLayout();

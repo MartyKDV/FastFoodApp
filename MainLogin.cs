@@ -42,10 +42,10 @@ namespace FastFoodApp
             employeeStore = new UserStore<Employee>(_contextIdentity);
             employeeManager = new UserManager<Employee>(employeeStore);
 
-            /*_context.Ingredients.Add(new Ingredient("Lukanka", 0.8f, "lukanka.jpg"));
-            _context.Ingredients.Add(new Ingredient("Cheese", 1.0f, "cheese.jpg"));
-            _context.Ingredients.Add(new Ingredient("Tomatoes", 0.3f, "tomatoes.jpg"));
-            _context.Ingredients.Add(new Ingredient("Lettuce", 0.2f, "lettuce.jpg"));
+            /*_context.Ingredients.Add(new Ingredient("Lukanka", 0.8f, 50));
+            _context.Ingredients.Add(new Ingredient("Cheese", 1.0f, 50));
+            _context.Ingredients.Add(new Ingredient("Tomatoes", 0.3f, 50));
+            _context.Ingredients.Add(new Ingredient("Lettuce", 0.2f, 50));
             _context.SaveChanges();
 
             addProduct("Sandwich", "Classic", new List<int>() { 1, 2, 3, 4 });
@@ -63,6 +63,7 @@ namespace FastFoodApp
                 ManagerAge = 23
             };
 
+            managerManager.Create(newManager, "testtest");
             Employee newEmployee = new Employee()
             {
                 UserName = "bbbb1111bbbb",
@@ -73,10 +74,19 @@ namespace FastFoodApp
                 EmployeeWage = 25.5f,
                 EmployeeAge = 23
             };
+            Employee new2Employee = new Employee()
+            {
+                UserName = "cccc1111cccc",
+                EmployeeFirstName = "Martin",
+                EmployeeLastName = "Kadrev",
+                EmployeeAddress = "Sofia",
+                EmployeeSSN = "73823643",
+                EmployeeWage = 25.5f,
+                EmployeeAge = 23
+            };
 
             employeeManager.Create(newEmployee, "testtest");
-            managerManager.Create(newManager, "testtest");*/
-
+            employeeManager.Create(new2Employee, "testtest");*/
         }
 
         private void addProduct(string type, string name, List<int> list)
@@ -125,13 +135,13 @@ namespace FastFoodApp
 
         private void btnEmployeeLogin_Click(object sender, EventArgs e)
         {
-            EmployeeLogin employeeLogin = new EmployeeLogin(_contextIdentity);
+            EmployeeLogin employeeLogin = new EmployeeLogin(_contextIdentity, _context, employeeManager, this);
             employeeLogin.ShowDialog();
         }
 
         private void btnManagerLogin_Click(object sender, EventArgs e)
         {
-            ManagerLogin managerLogin = new ManagerLogin(_contextIdentity, _context, managerManager, employeeManager);
+            ManagerLogin managerLogin = new ManagerLogin(_contextIdentity, _context, managerManager, employeeManager, this);
             managerLogin.ShowDialog();
         }
     }

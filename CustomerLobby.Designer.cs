@@ -33,6 +33,7 @@
             this.listViewProducts = new System.Windows.Forms.ListView();
             this.productColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ingredientsColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.priceColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.viewOrder = new System.Windows.Forms.TabPage();
             this.flowLayoutOrders = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.btnEmptyCart = new System.Windows.Forms.Button();
             this.btnCart = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
-            this.viewHistory = new System.Windows.Forms.TabPage();
             this.tabCustomerOptions.SuspendLayout();
             this.viewProducts.SuspendLayout();
             this.viewOrder.SuspendLayout();
@@ -51,7 +51,6 @@
             // 
             this.tabCustomerOptions.Controls.Add(this.viewProducts);
             this.tabCustomerOptions.Controls.Add(this.viewOrder);
-            this.tabCustomerOptions.Controls.Add(this.viewHistory);
             this.tabCustomerOptions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabCustomerOptions.Location = new System.Drawing.Point(0, 0);
             this.tabCustomerOptions.Name = "tabCustomerOptions";
@@ -76,8 +75,10 @@
             // 
             this.listViewProducts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.productColumn,
-            this.ingredientsColumn});
+            this.ingredientsColumn,
+            this.priceColumn});
             this.listViewProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewProducts.GridLines = true;
             this.listViewProducts.HideSelection = false;
             this.listViewProducts.Location = new System.Drawing.Point(3, 3);
             this.listViewProducts.Name = "listViewProducts";
@@ -90,12 +91,17 @@
             // productColumn
             // 
             this.productColumn.Text = "Product";
-            this.productColumn.Width = 216;
+            this.productColumn.Width = 164;
             // 
             // ingredientsColumn
             // 
             this.ingredientsColumn.Text = "Ingredients";
-            this.ingredientsColumn.Width = 1028;
+            this.ingredientsColumn.Width = 358;
+            // 
+            // priceColumn
+            // 
+            this.priceColumn.Text = "Price";
+            this.priceColumn.Width = 45;
             // 
             // viewOrder
             // 
@@ -126,8 +132,8 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.label1.Location = new System.Drawing.Point(0, 45);
+            this.label1.Margin = new System.Windows.Forms.Padding(0, 45, 3, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 24);
             this.label1.TabIndex = 0;
@@ -137,8 +143,8 @@
             // btnAddCustom
             // 
             this.btnAddCustom.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnAddCustom.Location = new System.Drawing.Point(103, 0);
-            this.btnAddCustom.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.btnAddCustom.Location = new System.Drawing.Point(103, 45);
+            this.btnAddCustom.Margin = new System.Windows.Forms.Padding(0, 45, 0, 3);
             this.btnAddCustom.Name = "btnAddCustom";
             this.btnAddCustom.Size = new System.Drawing.Size(40, 24);
             this.btnAddCustom.TabIndex = 1;
@@ -148,8 +154,8 @@
             // 
             // btnEmptyCart
             // 
-            this.btnEmptyCart.Location = new System.Drawing.Point(343, 3);
-            this.btnEmptyCart.Margin = new System.Windows.Forms.Padding(200, 3, 0, 3);
+            this.btnEmptyCart.Location = new System.Drawing.Point(343, 10);
+            this.btnEmptyCart.Margin = new System.Windows.Forms.Padding(200, 10, 0, 3);
             this.btnEmptyCart.Name = "btnEmptyCart";
             this.btnEmptyCart.Size = new System.Drawing.Size(47, 24);
             this.btnEmptyCart.TabIndex = 3;
@@ -160,8 +166,8 @@
             // btnCart
             // 
             this.btnCart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCart.Location = new System.Drawing.Point(400, 3);
-            this.btnCart.Margin = new System.Windows.Forms.Padding(10, 3, 0, 0);
+            this.btnCart.Location = new System.Drawing.Point(400, 10);
+            this.btnCart.Margin = new System.Windows.Forms.Padding(10, 10, 0, 0);
             this.btnCart.Name = "btnCart";
             this.btnCart.Size = new System.Drawing.Size(75, 23);
             this.btnCart.TabIndex = 2;
@@ -173,23 +179,14 @@
             // 
             this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutOrders.SetFlowBreak(this.btnOrder, true);
-            this.btnOrder.Location = new System.Drawing.Point(485, 3);
-            this.btnOrder.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.btnOrder.Location = new System.Drawing.Point(485, 10);
+            this.btnOrder.Margin = new System.Windows.Forms.Padding(10, 10, 3, 3);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(60, 24);
             this.btnOrder.TabIndex = 4;
             this.btnOrder.Text = "Order";
             this.btnOrder.UseVisualStyleBackColor = true;
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
-            // 
-            // viewHistory
-            // 
-            this.viewHistory.Location = new System.Drawing.Point(4, 22);
-            this.viewHistory.Name = "viewHistory";
-            this.viewHistory.Size = new System.Drawing.Size(574, 335);
-            this.viewHistory.TabIndex = 2;
-            this.viewHistory.Text = "History";
-            this.viewHistory.UseVisualStyleBackColor = true;
             // 
             // CustomerLobby
             // 
@@ -199,6 +196,7 @@
             this.Controls.Add(this.tabCustomerOptions);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CustomerLobby";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomerLobby";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CustomerLobby_FormClosed);
             this.Load += new System.EventHandler(this.CustomerLobby_Load);
@@ -216,7 +214,6 @@
         private System.Windows.Forms.TabControl tabCustomerOptions;
         private System.Windows.Forms.TabPage viewProducts;
         private System.Windows.Forms.TabPage viewOrder;
-        private System.Windows.Forms.TabPage viewHistory;
         private System.Windows.Forms.ListView listViewProducts;
         private System.Windows.Forms.ColumnHeader productColumn;
         private System.Windows.Forms.ColumnHeader ingredientsColumn;
@@ -226,5 +223,6 @@
         private System.Windows.Forms.Button btnCart;
         private System.Windows.Forms.Button btnEmptyCart;
         private System.Windows.Forms.Button btnOrder;
+        private System.Windows.Forms.ColumnHeader priceColumn;
     }
 }
