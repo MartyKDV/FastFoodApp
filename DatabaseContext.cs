@@ -12,11 +12,8 @@ namespace FastFoodApp
             : base("name=DatabaseContext")
         {
         }
-
         public virtual DbSet<Customer> Customers { get; set; }
-
         public virtual DbSet<Employee> Employees { get; set; }
-
         public virtual DbSet<Manager>  Managers  { get; set; }
     }
 

@@ -42,53 +42,10 @@ namespace FastFoodApp
             employeeStore = new UserStore<Employee>(_contextIdentity);
             employeeManager = new UserManager<Employee>(employeeStore);
 
-            /*_context.Ingredients.Add(new Ingredient("Lukanka", 0.8f, 50));
-            _context.Ingredients.Add(new Ingredient("Cheese", 1.0f, 50));
-            _context.Ingredients.Add(new Ingredient("Tomatoes", 0.3f, 50));
-            _context.Ingredients.Add(new Ingredient("Lettuce", 0.2f, 50));
-            _context.SaveChanges();
-
-            addProduct("Sandwich", "Classic", new List<int>() { 1, 2, 3, 4 });
-            addProduct("Sandwich", "Veggie v1", new List<int>() { 2, 3, 4 });
-            addProduct("Sandwich", "Veggie v2", new List<int>() { 2, 3 });
-
-            Manager newManager = new Manager()
-            {
-                UserName = "aaaa1111aaaa",
-                ManagerFirstName = "Martin",
-                ManagerLastName = "Kadrev",
-                ManagerAddress = "Sofia",
-                ManagerSSN = "73823643",
-                ManagerWage = 25.5f,
-                ManagerAge = 23
-            };
-
-            managerManager.Create(newManager, "testtest");
-            Employee newEmployee = new Employee()
-            {
-                UserName = "bbbb1111bbbb",
-                EmployeeFirstName = "Martin",
-                EmployeeLastName = "Kadrev",
-                EmployeeAddress = "Sofia",
-                EmployeeSSN = "73823643",
-                EmployeeWage = 25.5f,
-                EmployeeAge = 23
-            };
-            Employee new2Employee = new Employee()
-            {
-                UserName = "cccc1111cccc",
-                EmployeeFirstName = "Martin",
-                EmployeeLastName = "Kadrev",
-                EmployeeAddress = "Sofia",
-                EmployeeSSN = "73823643",
-                EmployeeWage = 25.5f,
-                EmployeeAge = 23
-            };
-
-            employeeManager.Create(newEmployee, "testtest");
-            employeeManager.Create(new2Employee, "testtest");*/
         }
 
+        /* -- Used to add products to the database table
+         
         private void addProduct(string type, string name, List<int> list)
         {
             Product product = new Product(type, name, list);
@@ -107,7 +64,7 @@ namespace FastFoodApp
                 _context.ProductIngredients.Add(new ProductIngredients(product.Id, i));
                 _context.SaveChanges();
             }
-        }
+        }*/
 
         private void btnLogin_Click(object sender, EventArgs e)
         {

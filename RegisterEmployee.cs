@@ -194,7 +194,7 @@ namespace FastFoodApp
                             };
                             string password = generatePassword();
                             managerManager.Create(manager, password);
-                            MessageBox.Show("Manager added.");
+                            MessageBox.Show("Manager added.\n" + id + "\n" + password);
                             managerId = manager.Id;
                         }
                         break;

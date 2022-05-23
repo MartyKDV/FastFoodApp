@@ -90,6 +90,17 @@ namespace FastFoodApp
             {
                 var user = managerManager.FindById(rEBtn.managerId);
                 managerManager.Delete(user);
+
+                var panels = flowLayoutPanelManageEmployees.Controls.OfType<Panel>();
+                foreach (var i in panels)
+                {
+                    var button = i.Controls.OfType<RemoveEmployeeButton>();
+                    if (button.First().managerId == rEBtn.managerId)
+                    {
+                        flowLayoutPanelManageEmployees.Controls.Remove(i);
+                    }
+                }
+
                 MessageBox.Show("Manager Removed.");
             }        
         }
@@ -150,9 +161,11 @@ namespace FastFoodApp
                     displayedRequests.Add(r.Id);
                     var employee = _contextIdentity.Employees.Where(em => em.Id == r.EmployeeId).First();
                     var ingredient = _context.Ingredients.Where(i => i.Id == r.IngredientId).First();
-                    int rowIndex = dataGridViewRestock.Rows.Add(employee.EmployeeFirstName, employee.EmployeeLastName, ingredient.Name, ingredient.Quantity, new Button(), new Button());
+                    int rowIndex = dataGridViewRestock.Rows.Add(employee.EmployeeFirstName, employee.EmployeeLastName,
+                        ingredient.Name, ingredient.Quantity, new Button(), new Button());
                     dataGridViewRestock.Rows[rowIndex].Tag = r.Id;
                 }
+                viewRequestsInitialised = true;
             }
             else
             {
@@ -164,7 +177,8 @@ namespace FastFoodApp
                         displayedRequests.Add(r.Id);
                         var employee = _contextIdentity.Employees.Where(em => em.Id == r.EmployeeId).First();
                         var ingredient = _context.Ingredients.Where(i => i.Id == r.IngredientId).First();
-                        int rowIndex = dataGridViewRestock.Rows.Add(employee.EmployeeFirstName, employee.EmployeeLastName, ingredient.Name, ingredient.Quantity, new Button(), new Button());
+                        int rowIndex = dataGridViewRestock.Rows.Add(employee.EmployeeFirstName, employee.EmployeeLastName,
+                            ingredient.Name, ingredient.Quantity, new Button(), new Button());
                         dataGridViewRestock.Rows[rowIndex].Tag = r.Id;
                     }
                 }
@@ -326,7 +340,7 @@ namespace FastFoodApp
 
             labelUN.Text = manager.UserName;
             labelUN.Location = new Point(160, 0);
-            labelUN.Size = new Size(80, height);
+            labelUN.Size = new Size(100, height);
             labelUN.Margin = new Padding(0);
             labelUN.TextAlign = ContentAlignment.MiddleCenter;
 
@@ -382,7 +396,7 @@ namespace FastFoodApp
 
             labelUN.Text = employee.UserName;
             labelUN.Location = new Point(160, 0);
-            labelUN.Size = new Size(80, height);
+            labelUN.Size = new Size(100, height);
             labelUN.Margin = new Padding(0);
             labelUN.TextAlign = ContentAlignment.MiddleCenter;
 
